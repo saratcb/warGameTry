@@ -79,14 +79,10 @@ body {
     ". . ."; 
     grid-area: PlayButton; 
     align-items: center;
-    
 
   }
 
     .MyButton {
         
         background-color: pink;
-      
-
     }
-  
