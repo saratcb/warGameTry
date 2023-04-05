@@ -37,14 +37,31 @@ body {
     gap: 0px 54px;
     grid-auto-flow: row;
     grid-template-areas:
-      "Deck1 Card1 Card2 Deck2";
+      "Deck1 Card1 Card2 Deck2 GameScore";
     grid-area: BoardGame;
   }
-  
+
+  .Player1_Score{
+    grid-template-rows: 1fr;
+    background-color: blue;
+    position: absolute;
+    margin-top: 220px;
+    margin-left: 20px;
+    height: 40px;
+  }
+
+.Player2_Score{
+  grid-template-rows: 1fr;
+  background-color: blue;
+  position: absolute;
+  margin-top: 220px;
+  margin-left: 600px;
+  height: 40px;
+}
+
   .Deck1 { grid-area: Deck1;
     background-color: black;
     border-radius: 2rem;
-
 }
   
   .Deck2 { grid-area: Deck2; 
@@ -103,14 +120,12 @@ body {
     ". . ."; 
     grid-area: PlayButton; 
     align-items: center;
-    
 
   }
 
     .MyButton {
-        
+        padding: 25px;
         background-color: pink;
-      
-
+        margin-left: 375px;
     }
   
