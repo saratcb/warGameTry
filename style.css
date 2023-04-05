@@ -34,11 +34,12 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    gap: 0px 54px;
+    gap: 0px 40px;
     grid-auto-flow: row;
     grid-template-areas:
       "Deck1 Card1 Card2 Deck2 GameScore";
     grid-area: BoardGame;
+    margin-left: 40px;
   }
 
   .Player1_Score{
@@ -55,13 +56,14 @@ body {
   background-color: blue;
   position: absolute;
   margin-top: 220px;
-  margin-left: 600px;
+  margin-left: 530px;
   height: 40px;
 }
 
   .Deck1 { grid-area: Deck1;
-    background-color: black;
+    
     border-radius: 2rem;
+    background-image: url(CardBack.jpg);
 }
   
   .Deck2 { grid-area: Deck2; 
@@ -126,6 +128,6 @@ body {
     .MyButton {
         padding: 25px;
         background-color: pink;
-        margin-left: 375px;
+        margin-left: 330px;
     }
   
