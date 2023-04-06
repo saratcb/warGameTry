@@ -1,12 +1,38 @@
-function createCard(valor, naipe) {
-    const element = document.getElementById("root");
-    console.log(element)
+
+
+function createCardplayer1() {
+
+    const cardValue = "9";
+    const classCard = "card card--heartRed"
+
+    const element = document.getElementById("playerOneCardNum");
+    
     const card = `
     <div>
-        <h1>${valor}</h1>
-        <h1>${naipe}</h1>
+    <section class="${classCard}" value="${cardValue}"></section>
     </div>`;
+
     element.innerHTML = card;
+ 
 }
 
-createCard("A","paus")
+function createCardplayer2() {
+
+    const cardValue = "10";
+    const classCard = "card card--spadeBlack"
+
+    const element = document.getElementById("playerTwoCardNum");
+    
+    const card = `
+    <div>
+    <section class="${classCard}" value="${cardValue}"></section>
+    </div>`;
+
+    element.innerHTML = card;
+   
+}
+
+
+
+createCardplayer1()
+createCardplayer2()

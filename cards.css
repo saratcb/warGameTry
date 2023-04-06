@@ -20,9 +20,31 @@ body {
 	border-radius: 4px;
 	background: #fff;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
-	align-items: center;
     /*backface-visibility: hidden;*/
     }
+
+	.card:before,
+	.card:after
+    {
+		content: attr(value);
+		position: absolute;
+		width: 20px;
+		text-align: center;
+		letter-spacing: -2px;
+	}
+	
+	.card:before
+    {
+		top: 4px;
+		left: 4px;
+	}
+	
+	.card:after
+    {
+		bottom: 4px;
+		right: 4px;
+		transform: rotate(180deg);
+	}
 		
 	.card--spadeBlack {
 		color: #252525;
