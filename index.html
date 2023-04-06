@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>WarGame</title>
-</head>
-<body>
-    <div class="container">
-      <div class="gameTitle">
-          <div></div>
-          <h1> WarGame</h1>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="gameBoard.css">
+      <link rel="stylesheet" type="text/css" href="cards.css">
+      <title>WarGame</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+   </head>
+   <body>
+    
+      <div class="container">
+        <div class="game-title">
+          <div>
+          </div>
+          <h1 class= "titulo"> warGame</h1> 
+        </div>
+       
+      <div class="board-game">
+        <div class= "boardCard">
+        <div class= "card__back"></div>
+        </div>
+        <div class= "boardCard">
+        <div id="playerOneCardNum"></div>
+        </div>
+        <div class= "boardCard">
+        <div id="playerTwoCardNum"></div>
+        </div>
+        <div class= "boardCard">
+        <div class= "card__back"> </div>
+        </div>
       </div>
-      <div class="boardGame">
-          <div class="Deck1"></div>
-          <div class="Card1"></div>
-          <div class="Card2"></div>
-          <div class="Deck2"></div>
-      </div>
-      <div class="play_scores">
-          <div class="p1_score">Player1 Score</div>
-          <div class="p2_score">Player2 Score</div>
-          <button class="myButton">PlayGame</button>
+      <div class=" game-title"> 
+        <div>
+        
+        </div>
+        <button class="myButton">Play Game</button>
       </div>
     </div>
-</body>
+   </body>
+   <script type="text/javascript" src= "card.js"></script>
 </html>
