@@ -1,133 +1,64 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  }
-    
 body {
     height: 100vh;
-    overflow: hidden;
-    display: grid;
-    justify-content: center;
-    align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
 .container {  
     display: grid;
-    height: 600px;
-    width: 750px;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 1.5fr 1.1fr;
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
-    gap: 70px 40px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "GameTitle"
-      "BoardGame"
-      "PlayButton";
+    height: 100%;
+    grid-template-rows: auto auto auto;
     background-color: aquamarine;
   }
-  
-  .BoardGame {  
+.gameTitle { 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 40px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "Deck1 Card1 Card2 Deck2 GameScore";
-    grid-area: BoardGame;
-    margin-left: 40px;
+    grid-template-columns: 1fr 1fr 1fr; 
+    text-align: center;
+    color: gray;
+    font-size: 24px;    
+}  
+.boardGame {  
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 50px;
+    
   }
-
-  .Player1_Score{
-    grid-template-rows: 1fr;
-    background-color: blue;
-    position: absolute;
-    margin-top: 220px;
-    margin-left: 20px;
-    height: 40px;
-  }
-
-.Player2_Score{
-  grid-template-rows: 1fr;
-  background-color: blue;
-  position: absolute;
-  margin-top: 220px;
-  margin-left: 530px;
-  height: 40px;
+.play_scores {
+  display: grid;
+  grid-template-areas: 
+  "A B P"
+  "A PLAY C";
+}
+.myButton {
+  grid-area: PLAY;
+  background-color: pink;
 }
 
-  .Deck1 { grid-area: Deck1;
-    
+.p1_score{
+    background-color: blue;
+  }
+
+.p2_score{
+  grid-area: P;
+  background-color: blue;
+}
+
+  .Deck1 { 
     border-radius: 2rem;
     background-image: url(CardBack.jpg);
 }
   
-  .Deck2 { grid-area: Deck2; 
-    background-color: pink;
+  .Deck2 { 
     border-radius: 2rem;
-    background-image: url(data:image/jpeg;base64,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);
+    background-image: url(CardBack.jpg);
 }
   
-  .Card1 { grid-area: Card1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .Card1 {
     background-color: beige;
     border-radius: 2rem;
 }
-    .card_number {
-      display: flex;
-      justify-content:left;
-      padding-top: 20px;
-      padding-left: 20px;
-      font-weight: bold;
 
-    }
-
-    .card_image {
-      display: flex;
-      justify-content: right;
-      color: red;
-      padding-bottom: 20px;
-      padding-right: 20px;
-      font-size: 30px;
-    }
-  
-  .Card2 { grid-area: Card2; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .Card2 { 
     background-color: beige;
     border-radius: 2rem;
 }
-  
-  .GameTitle { grid-area: GameTitle; 
-    text-align: center;
-    color: gray;
-    font-size: 24px;
-    
-}
-  .PlayButton {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: 1fr 1fr 1fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-    ". . ."
-    ". MyButton ."
-    ". . ."; 
-    grid-area: PlayButton; 
-    align-items: center;
-
-  }
-
-    .MyButton {
-        padding: 25px;
-        background-color: pink;
-        margin-left: 330px;
-    }
   
