@@ -36,3 +36,39 @@ body{
   display: flex;
   justify-content: center; 
 }
+.cards {
+	text-align: center;
+	max-width: 640px;
+	margin: 0 auto;
+}
+
+.card {
+	position: relative;
+	display: inline-block;
+	width: 172px;
+	height: 240px;
+	font: 16px 'Trebuchet MS';
+	margin: 10px;
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+.card.red {
+  color: red;
+}
+
+.card.black {
+  color: black;
+}
+
+.card__back {
+	background-image: url(CardBack.jpg);
+	display: inline-block;
+	width: 172px;
+	height: 240px;
+	font: 16px 'Trebuchet MS';
+	margin: 10px;
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+	align-items: center;
+      }
