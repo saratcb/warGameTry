@@ -10,6 +10,15 @@ export default class Deck {
     get numberOfCards() {
         return this.cards.length
     }
+/*retira a última carta do array */
+    pop() {
+        return this.cards.shift()
+    }
+/*coloca uma carta no final do array */
+    push(card) {
+        this.cards.push(card)
+    }
+
 
     shuffle() {
         for (let i = this.numberOfCards -1; i>0; i--){
@@ -26,7 +35,23 @@ class Card {
         this.suit = suit
         this.value = value
     }
+
+    get color() {
+        return this.suit === "♣" || this.suit === "♠" ? "black" : "red"
+    }
+
+    getHTML(){
+
+        const cardDiv = document.createElement("div")
+        cardDiv.innerText = this.suit
+        cardDiv.classList.add("card", this.color)
+        cardDiv.dataset.value = `${this.value} ${this.suit}`
+        return cardDiv
+    }
+
 }
+
+
 
 function freshDeck() {
     return SUITS.flatMap(suit => {

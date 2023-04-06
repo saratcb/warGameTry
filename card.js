@@ -17,53 +17,67 @@ const CARD_VALUE_MAP = {
     A: 14
   }
 
-const computerCardSlot = document.querySelector(".playerOneCardNum")
-const playerCardSlot = document.querySelector(".playerTwoCardNum")
-/*const computerDeckElement = document.querySelector(".computer-deck")
-const playerDeckElement = document.querySelector(".player-deck")
-const text = document.querySelector(".text")*/
+const playerOneCardNum = document.querySelector(".playerOneCardNum")
+const playerTwoCardNum= document.querySelector(".playerTwoCardNum")
+const computerDeckElement = document.querySelector(".card__back")
+const playerDeckElement = document.querySelector(".card__back")
 
+let player1PlayingDeck, player2PlayingDeck, inRound, stop 
 
-const deck = new Deck();
-
-deck.shuffle();
-
-const 
-
-
-function createCardplayer1() {
-
-    const cardValue = "9";
-    const classCard = "card card--heartRed"
-
-    const element = document.getElementById("playerOneCardNum");
-    
-    const card = `
-    <div>
-    <section class="${classCard}" value="${cardValue}"></section>
-    </div>`;
-
-    element.innerHTML = card;
- 
+document.addEventListener("click", () => {
+    if (stop){
+    startGame()
+    return
+}
+    if (inRound){
+        cleanBeforeRound()
+    } else {
+        flipCards()
+    }
 }
 
-function createCardplayer2() {
+)
 
-    const cardValue = "10";
-    const classCard = "card card--spadeBlack"
+startGame()
+    function startGame(){
+    const deck = new Deck();
+    deck.shuffle();
 
-    const element = document.getElementById("playerTwoCardNum");
+    const deckMidpoint = Math.ceil(deck.numberOfCards/2)
+    player1PlayingDeck = new Deck(deck.cards.slice(0, deckMidpoint))
+    player2PlayingDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
+    inRound = false
+    stop = false
     
-    const card = `
-    <div>
-    <section class="${classCard}" value="${cardValue}"></section>
-    </div>`;
+    cleanBeforeRound()
+    }
 
-    element.innerHTML = card;
-   
-}
+    function cleanBeforeRound(){
+
+        inRound = false
+        playerOneCardNum.innerHTML = ""
+        playerTwoCardNum.innerHTML = ""
+        text.innerText = ""
+
+        updateDeckCount()
+    }
+
+    function flipCards(){
+        inRound = true
+
+        const player1Card = player1PlayingDeck.pop()
+        const player2Card = player2PlayingDeck.pop()
+
+        playerOneCardNum.appendChild(player1Card.getHTML())
+        playerTwoCardNum.appendChild(player2Card.getHTML())
+
+        updateDeckCount()
 
 
+    }
 
-createCardplayer1()
-createCardplayer2()
+    function updateDeckCount() {
+        computerDeckElement.innerText = player2PlayingDeck.numberOfCards
+        playerDeckElement.innerText = player1PlayingDeck.numberOfCards
+      }
+      
