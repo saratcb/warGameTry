@@ -1,0 +1,97 @@
+body {
+	padding: 0;
+	margin: 0;
+	background: #f0f0f0;
+}
+
+.cards {
+	text-align: center;
+	max-width: 640px;
+	margin: 0 auto;
+}
+
+.card {
+	position: relative;
+	display: inline-block;
+	width: 172px;
+	height: 240px;
+	font: 16px 'Trebuchet MS';
+	margin: 10px;
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+	align-items: center;
+    /*backface-visibility: hidden;*/
+    }
+		
+	.card--spadeBlack {
+		color: #252525;
+        }
+	.card--spadeBlack:before,
+	.card--spadeBlack:after {
+			content: attr(value) ' ♠';
+		}
+
+    .card--clubBlack {
+		color: #252525;
+        }
+	.card--clubBlack:before,
+	.card--clubBlack:after {
+			content: attr(value) ' ♣'; 
+		}    
+
+    .card--diamRed {
+		color: #bd0000;
+        }
+	.card--diamRed:before,
+	.card--diamRed:after {
+			content: attr(value) ' ♦';
+		}
+
+     .card--heartRed {
+		color: #bd0000;
+        }
+	.card--heartRed:before,
+	.card--heartRed:after {
+			content: attr(value) ' ♥'; 
+		}      
+
+    .card__back {
+	background-image: url(CardBack.jpg);
+	display: inline-block;
+	width: 172px;
+	height: 240px;
+	font: 16px 'Trebuchet MS';
+	margin: 10px;
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+	align-items: center;
+      }
+    
+      .card__back-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(205, 0, 0);
+      }
+
+	  .card:hover{
+		cursor: pointer;
+		transition: transform 1500ms;
+		transform: rotateY(180deg);
+	  }
+
+	  .card:hover::after{
+		opacity: 0;
+	  }
+
+	  .card:hover::before{
+		opacity: 0;
+	  }
+
+.title {
+	font: 18px 'Trebuchet MS';
+	color: #444;
+	text-align: center;
+}
