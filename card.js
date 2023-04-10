@@ -19,8 +19,8 @@ const CARD_VALUE_MAP = {
 
 const playerOneCardNum = document.querySelector(".playerOneCardNum")
 const playerTwoCardNum= document.querySelector(".playerTwoCardNum")
-const playerOneDeckElement = document.querySelector(".playerOneDeck")
-const playerTwoDeckElement = document.querySelector(".playerTwoDeck")
+const playerOneDeckElement = document.querySelector(".player1Score")
+const playerTwoDeckElement = document.querySelector(".player2Score")
 
 let playerOneDeck, playerTwoDeck, inRound, stop 
 
@@ -55,6 +55,7 @@ startGame()
         inRound = false
         playerOneCardNum.innerHTML = ""
         playerTwoCardNum.innerHTML = ""
+        updateDeckCount()
 
         
     }
@@ -68,7 +69,31 @@ startGame()
         playerOneCardNum.appendChild(player1Card.getHTML())
         playerTwoCardNum.appendChild(player2Card.getHTML())
 
-        
+        checkWinner(player1Card,player2Card)
+        updateDeckCount()
+
+    }
+
+    function checkWinner(player1Card, player2Card){
+
+        let p1Card = CARD_VALUE_MAP[player1Card.value]
+        let p2Card = CARD_VALUE_MAP[player2Card.value]
+
+        if (p1Card>p2Card){
+            playerOneDeck.push(player1Card)
+            playerOneDeck.push(player2Card) 
+        }
+
+        if (p1Card<p2Card){
+            playerTwoDeck.push(player1Card)
+            playerTwoDeck.push(player2Card)
+        } 
+
+    }
+
+    function updateDeckCount() {
+        playerOneDeckElement.innerText = playerOneDeck.numberOfCards
+        playerTwoDeckElement.innerText = playerTwoDeck.numberOfCards
 
     }
     

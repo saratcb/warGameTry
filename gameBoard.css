@@ -107,7 +107,7 @@ body{
 
 }
 
-.playerScores{
+.player1Score, .player2Score{
     display: flex;
     position:relative;
     font: 16px 'Trebuchet MS';
