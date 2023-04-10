@@ -1,5 +1,5 @@
 
-import Deck from './deck.js';
+import Deck from "./deck.js"
 
 const CARD_VALUE_MAP = {
     "2": 2,
@@ -19,12 +19,12 @@ const CARD_VALUE_MAP = {
 
 const playerOneCardNum = document.querySelector(".playerOneCardNum")
 const playerTwoCardNum= document.querySelector(".playerTwoCardNum")
-const computerDeckElement = document.querySelector(".card__back")
-const playerDeckElement = document.querySelector(".card__back")
+const playerOneDeckElement = document.querySelector(".playerOneDeck")
+const playerTwoDeckElement = document.querySelector(".playerTwoDeck")
 
-let player1PlayingDeck, player2PlayingDeck, inRound, stop 
+let playerOneDeck, playerTwoDeck, inRound, stop 
 
-document.addEventListener("click", () => {
+document.querySelector(".myButton").addEventListener("click", () => {
     if (stop){
     startGame()
     return
@@ -34,9 +34,7 @@ document.addEventListener("click", () => {
     } else {
         flipCards()
     }
-}
-
-)
+})
 
 startGame()
     function startGame(){
@@ -44,8 +42,8 @@ startGame()
     deck.shuffle();
 
     const deckMidpoint = Math.ceil(deck.numberOfCards/2)
-    player1PlayingDeck = new Deck(deck.cards.slice(0, deckMidpoint))
-    player2PlayingDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
+    playerOneDeck = new Deck(deck.cards.slice(0, deckMidpoint))
+    playerTwoDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
     inRound = false
     stop = false
     
@@ -57,27 +55,24 @@ startGame()
         inRound = false
         playerOneCardNum.innerHTML = ""
         playerTwoCardNum.innerHTML = ""
-        text.innerText = ""
 
-        updateDeckCount()
+        
     }
 
     function flipCards(){
         inRound = true
 
-        const player1Card = player1PlayingDeck.pop()
-        const player2Card = player2PlayingDeck.pop()
+        const player1Card = playerOneDeck.pop()
+        const player2Card = playerTwoDeck.pop()
 
         playerOneCardNum.appendChild(player1Card.getHTML())
         playerTwoCardNum.appendChild(player2Card.getHTML())
 
-        updateDeckCount()
-
+        
 
     }
+    
+    
 
-    function updateDeckCount() {
-        computerDeckElement.innerText = player2PlayingDeck.numberOfCards
-        playerDeckElement.innerText = player1PlayingDeck.numberOfCards
-      }
+    
       

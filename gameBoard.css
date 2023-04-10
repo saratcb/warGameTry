@@ -1,13 +1,19 @@
+
+
 body{
   height: 100vh;
   width: 100%;
+  background-color: aliceblue;
+  cursor: pointer;
 }
 
 
 .container{
   display: grid;
   grid-template-rows: auto  1fr auto;
-  height: 100%;
+  height: fit-content;
+  margin-bottom: 100px;
+
 }
 
 .game-title{
@@ -18,40 +24,40 @@ body{
   height: 200px;
   grid-template-areas:
   "A B C"
-  "A CENAS C"
+  "A TITLE C"
   "A Z C"
 }
 
-.titulo{
-  grid-area: CENAS;
+.title{
+  grid-area: TITLE;
+  color: grey;
 
 }
 
 .board-game{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: fit-content;
 }
 
 .boardCard{
+  height: fit-content;
   display: flex;
   justify-content: center; 
 }
-.cards {
-	text-align: center;
-	max-width: 640px;
-	margin: 0 auto;
-}
 
 .card {
+  display: flex;
 	position: relative;
-	display: inline-block;
 	width: 172px;
 	height: 240px;
-	font: 16px 'Trebuchet MS';
+	font: 200px 'Trebuchet MS';
 	margin: 10px;
 	border-radius: 4px;
 	background: #fff;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  justify-content: center;
+  align-items: center;
 }
 .card.red {
   color: red;
@@ -61,7 +67,25 @@ body{
   color: black;
 }
 
-.card__back {
+.card::before,
+.card::after {
+  position: absolute;
+  content: attr(data-value);
+  font-size: 1rem;
+}
+
+.card::before {
+  top: .5rem;
+  left: .5rem
+}
+
+.card::after {
+  bottom: .5rem;
+  right: .5rem;
+  transform: rotate(180deg);
+}
+
+.deck {
 	background-image: url(CardBack.jpg);
 	display: inline-block;
 	width: 172px;
@@ -71,4 +95,32 @@ body{
 	border-radius: 4px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 	align-items: center;
-      }
+  }
+
+.scores{
+  display: flex;
+  width: 100%;
+  height: 200px;
+  align-items: center;
+  justify-content: space-evenly;
+  
+
+}
+
+.playerScores{
+    display: flex;
+    position:relative;
+    font: 16px 'Trebuchet MS';
+    height:fit-content;
+    width: fit-content;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    align-items: center;
+    justify-content: center;
+  }
+
+.myButton{
+  background-color: beige;
+  height: 30px;
+  width: 100px;
+}
+

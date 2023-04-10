@@ -2,44 +2,45 @@
 <html lang="en">
    <head>
       <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="gameBoard.css">
-      <link rel="stylesheet" type="text/css" href="cards.css">
       <title>WarGame</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="stylesheet" type="text/css" href="gameBoard.css">
+  
    </head>
    <body>
-    
       <div class="container">
         <div class="game-title">
           <div>
           </div>
-          <h1 class= "titulo"> warGame</h1> 
+          <h1 class= "title"> warGame</h1> 
         </div>
        
       <div class="board-game">
         <div class= "boardCard">
-        <div class= "card__back"></div>
+            <div class="playerOneDeck deck"></div>
         </div>
         <div class= "boardCard">
-        <div class="playerOneCardNum card"></div>
+        <div class="playerOneCardNum"></div>
         </div>
         <div class= "boardCard">
-        <div class="playerTwoCardNum card"></div>
+        <div class="playerTwoCardNum"></div>
         </div>
-        <div class= "boardCard">
-        <div class= "card__back"> </div>
+        <div class= "boardCard"> 
+          <div class="playerTwoDeck deck"></div>
+        </div>
         </div>
       </div>
-      <div class=" game-title"> 
-        <div>
-        
+      <div class="scores"> 
+        <div class= "playerScores">
+        <p> Player One Score</p>
         </div>
         <button class="myButton">Play Game</button>
+        <div class= "playerScores">
+        <p>Player Two Score</p>
       </div>
     </div>
+    <script src="card.js" type="module"></script>
    </body>
-   <script type="text/javascript" src= "card.js"></script>
-   <script type="text/javascript" src= "deck.js"></script>
+   
 </html>
