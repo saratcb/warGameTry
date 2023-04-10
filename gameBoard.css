@@ -46,10 +46,9 @@ body{
 .card {
   display: flex;
 	position: relative;
-	display: inline-block;
 	width: 172px;
 	height: 240px;
-	font: 16px 'Trebuchet MS';
+	font: 200px 'Trebuchet MS';
 	margin: 10px;
 	border-radius: 4px;
 	background: #fff;
@@ -94,3 +93,15 @@ body{
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 	align-items: center;
   }
+
+  .playerScores{
+    display: flex;
+    position:relative;
+    font: 16px 'Trebuchet MS';
+    height:fit-content;
+    width: fit-content;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    align-items: center;
+    justify-content: center;
+  }
+

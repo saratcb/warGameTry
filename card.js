@@ -9,7 +9,7 @@ const playerTwoDeckElement = document.querySelector(".playerTwoDeck")
 
 let playerOneDeck, playerTwoDeck, inRound, stop 
 
-document.addEventListener("click", () => {
+document.querySelector(".myButton").addEventListener("click", () => {
     if (stop){
     startGame()
     return
