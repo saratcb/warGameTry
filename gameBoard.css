@@ -1,12 +1,10 @@
 
-
 body{
   height: 100vh;
   width: 100%;
   background-color: aliceblue;
   cursor: pointer;
 }
-
 
 .container{
   display: grid;
@@ -103,8 +101,6 @@ body{
   height: 200px;
   align-items: center;
   justify-content: space-evenly;
-  
-
 }
 
 .player1Score, .player2Score{

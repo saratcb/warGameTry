@@ -21,8 +21,8 @@ const playerOneCardNum = document.querySelector(".playerOneCardNum")
 const playerTwoCardNum= document.querySelector(".playerTwoCardNum")
 const playerOneDeckElement = document.querySelector(".player1Score")
 const playerTwoDeckElement = document.querySelector(".player2Score")
-const playerOneCardNumWar = document.querySelector("playerOneCardNum")
-const playerTwoCardNumWar = document.querySelector("playerTwoCardNum")
+const playerOneCardNumWar = document.querySelector(".playerOneCardWar")
+const playerTwoCardNumWar = document.querySelector(".playerTwoCardWar")
 
 let playerOneDeck, playerTwoDeck, inRound, stop 
 
@@ -60,8 +60,6 @@ startGame()
         playerOneCardNum.innerHTML = ""
         playerTwoCardNum.innerHTML = ""
         updateDeckCount()
-
-        
     }
 
     function flipCards(){
@@ -83,6 +81,7 @@ startGame()
         let p1Card = CARD_VALUE_MAP[player1Card.value]
         let p2Card = CARD_VALUE_MAP[player2Card.value]
 
+        
         if (p1Card>p2Card){
             playerOneDeck.push(player1Card)
             playerOneDeck.push(player2Card) 
@@ -96,26 +95,21 @@ startGame()
         else () =>{
             war();
         }
-
-
+        
         updateDeckCount()
 
     }
 
     function war (){
-         warCardsP1 = playerOneDeck.slice(0,3);
-         warCardsP2= playerTwoDeck.slice(0,3);
-        
-        playerOneCardNumWar.appendChild(warCardsP1.getHTML())
-        playerTwoCardNumWar.appendChild(warCardsP2.getHTML())
+         warCardsP1 = playerOneDeck.cards.slice(4);
+         warCardsP2= playerTwoDeck.cards.slice(4);
 
-        /*const warP1Html = `
-        <div class= ${warCardsP1}></div>`;
-        warP1.innerHTML = warP1Html;
+         playerOneCardNumWar.innerHTML = warCardsP1;
+         playerTwoCardNumWar.innerHTML = warCardsP2;
 
-        const warP2Html = `
-        <div class= ${warCardsP2}></div>`;
-        warP2.innerHTML = warP2Html;*/
+         document.getElementById("warCard1").style.display = "flex";
+         document.getElementById("warCard2").style.display = "flex";
+ 
     }
 
     function updateDeckCount() {
