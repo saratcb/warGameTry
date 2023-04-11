@@ -21,8 +21,12 @@ const playerOneCardNum = document.querySelector(".playerOneCardNum")
 const playerTwoCardNum= document.querySelector(".playerTwoCardNum")
 const playerOneDeckElement = document.querySelector(".player1Score")
 const playerTwoDeckElement = document.querySelector(".player2Score")
+const playerOneCardNumWar = document.querySelector("playerOneCardNum")
+const playerTwoCardNumWar = document.querySelector("playerTwoCardNum")
 
 let playerOneDeck, playerTwoDeck, inRound, stop 
+
+var warCardsP1 = [], warCardsP2 = [];
 
 document.querySelector(".myButton").addEventListener("click", () => {
     if (stop){
@@ -89,11 +93,34 @@ startGame()
             playerTwoDeck.push(player2Card)
         } 
 
+        else () =>{
+            war();
+        }
+
+
+        updateDeckCount()
+
+    }
+
+    function war (){
+         warCardsP1 = playerOneDeck.slice(0,3);
+         warCardsP2= playerTwoDeck.slice(0,3);
+        
+        playerOneCardNumWar.appendChild(warCardsP1.getHTML())
+        playerTwoCardNumWar.appendChild(warCardsP2.getHTML())
+
+        /*const warP1Html = `
+        <div class= ${warCardsP1}></div>`;
+        warP1.innerHTML = warP1Html;
+
+        const warP2Html = `
+        <div class= ${warCardsP2}></div>`;
+        warP2.innerHTML = warP2Html;*/
     }
 
     function updateDeckCount() {
-        playerOneDeckElement.innerText = playerOneDeck.numberOfCards
-        playerTwoDeckElement.innerText = playerTwoDeck.numberOfCards
+        playerOneDeckElement.innerText = "Player One Score: " + playerOneDeck.numberOfCards
+        playerTwoDeckElement.innerText = "Player Two Score: " + playerTwoDeck.numberOfCards
 
     }
     
