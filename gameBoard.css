@@ -44,7 +44,7 @@ body{
   justify-content: center; 
 }
 
-.card {
+.card, .playerOneCardWar, .playerTwoCardWar{
   display: flex;
 	position: relative;
 	width: 172px;
@@ -118,5 +118,9 @@ body{
   background-color: beige;
   height: 30px;
   width: 100px;
+}
+
+.warCard1{
+
 }
 

@@ -26,16 +26,15 @@ const playerTwoCardNumWar = document.querySelector(".playerTwoCardWar")
 
 let playerOneDeck, playerTwoDeck, inRound, stop 
 
-var warCardsP1 = [], warCardsP2 = [];
+
 
 document.querySelector(".myButton").addEventListener("click", () => {
     if (stop){
     startGame()
     return
 }
-    if (inRound){
+    else{
         cleanBeforeRound()
-    } else {
         flipCards()
     }
 })
@@ -51,6 +50,7 @@ startGame()
     inRound = false
     stop = false
     
+
     cleanBeforeRound()
     }
 
@@ -87,12 +87,12 @@ startGame()
             playerOneDeck.push(player2Card) 
         }
 
-        if (p1Card<p2Card){
+        else if (p1Card<p2Card){
             playerTwoDeck.push(player1Card)
             playerTwoDeck.push(player2Card)
         } 
 
-        else () =>{
+        else {
             war();
         }
         
@@ -101,15 +101,28 @@ startGame()
     }
 
     function war (){
-         warCardsP1 = playerOneDeck.cards.slice(4);
-         warCardsP2= playerTwoDeck.cards.slice(4);
+        var warCards1P1 = playerOneDeck.pop();
+        var warCards2P1 = playerOneDeck.pop();
+        var warCards3P1 = playerOneDeck.pop();
+        var warCards4P1 = playerOneDeck.pop();
 
-         playerOneCardNumWar.innerHTML = warCardsP1;
-         playerTwoCardNumWar.innerHTML = warCardsP2;
+
+         warCardsP2= playerTwoDeck.cards.slice(0,3);
+
+        /* playerOneCardNumWar.innerHTML = warCardsP1;
+         playerTwoCardNumWar.innerHTML = warCardsP2;*/
 
          document.getElementById("warCard1").style.display = "flex";
          document.getElementById("warCard2").style.display = "flex";
- 
+
+         playerOneCardNumWar.appendChild(warCards1P1.getHTML())
+         playerOneCardNumWar.appendChild(warCards2P1.getHTML())
+         playerOneCardNumWar.appendChild(warCards3P1.getHTML())
+         playerOneCardNumWar.appendChild(warCards4P1.getHTML())
+
+
+         
+         playerTwoCardNumWar.appendChild(warCardsP2.getHTML())
     }
 
     function updateDeckCount() {
