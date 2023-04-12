@@ -1,12 +1,10 @@
 
-
 body{
   height: 100vh;
   width: 100%;
   background-color: aliceblue;
   cursor: pointer;
 }
-
 
 .container{
   display: grid;
@@ -103,11 +101,9 @@ body{
   height: 200px;
   align-items: center;
   justify-content: space-evenly;
-  
-
 }
 
-.playerScores{
+.player1Score, .player2Score{
     display: flex;
     position:relative;
     font: 16px 'Trebuchet MS';

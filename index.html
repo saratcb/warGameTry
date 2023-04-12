@@ -15,32 +15,44 @@
           </div>
           <h1 class= "title"> warGame</h1> 
         </div>
-       
       <div class="board-game">
         <div class= "boardCard">
             <div class="playerOneDeck deck"></div>
         </div>
         <div class= "boardCard">
-        <div class="playerOneCardNum"></div>
+          <div class="playerOneCardNum"></div>
+          <div id = "warP1" style = "display: none">
+            <div class="playerOneDeck deck" style = "z-index:-3; left:10px" >
+            <div class="playerOneDeck deck" style = "z-index:-2; left:30px" >
+            <div class="playerOneDeck deck" style = "z-index:-1; left:50px" >
+            <div class = "playerOneCardWar" style = "z-index:0" id="warCard1"></div>
+            </div></div></div></div>  
         </div>
         <div class= "boardCard">
-        <div class="playerTwoCardNum"></div>
+          <div id = "warP2" style = "display:none">
+          <div class="playerTwoDeck deck" style = "z-index:-3; right:10px" >
+          <div class="playerTwoDeck deck" style = "z-index:-2; right:30px" >
+          <div class="playerTwoDeck deck" style = "z-index:-1; right:50px" >
+            <div class = "playerTwoCardWar" style = "z-index:0" id="warCard2"></div>
+          </div> </div> </div> </div>
+          <div class="playerTwoCardNum"></div>
         </div>
+        
         <div class= "boardCard"> 
           <div class="playerTwoDeck deck"></div>
         </div>
         </div>
-      </div>
+
       <div class="scores"> 
-        <div class= "playerScores">
+        <div class= "player1Score">
         <p> Player One Score</p>
         </div>
         <button class="myButton">Play Game</button>
-        <div class= "playerScores">
+        <div class= "player2Score">
         <p>Player Two Score</p>
+      </div>
       </div>
     </div>
     <script src="card.js" type="module"></script>
    </body>
-   
 </html>
