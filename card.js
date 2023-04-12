@@ -22,11 +22,11 @@ const playerTwoCardNum= document.querySelector(".playerTwoCardNum")
 const playerOneDeckElement = document.querySelector(".player1Score")
 const playerTwoDeckElement = document.querySelector(".player2Score")
 const playerOneCardNumWar = document.querySelector(".playerOneCardWar")
+const playerOneCard1NumWar = document.querySelector(".playerOneCard1War")
 const playerTwoCardNumWar = document.querySelector(".playerTwoCardWar")
 
 let playerOneDeck, playerTwoDeck, inRound, stop 
-
-
+var warCards1P1, warCards2P1, warCards3P1, warCards4P1, warCards1P2, warCards2P2, warCards3P2, warCards4P2
 
 document.querySelector(".myButton").addEventListener("click", () => {
     if (stop){
@@ -101,24 +101,32 @@ startGame()
     }
 
     function war (){
-        var warCards1P1 = playerOneDeck.pop();
-        var warCards2P1 = playerOneDeck.pop();
-        var warCards3P1 = playerOneDeck.pop();
-        var warCards4P1 = playerOneDeck.pop();
+        warCards1P1 = playerOneDeck.pop(); 
+        warCards2P1 = playerOneDeck.pop(); 
+        warCards3P1 = playerOneDeck.pop();
+        warCards4P1 = playerOneDeck.pop();
 
+        warCards1P2 = playerTwoDeck.pop(); 
+        warCards2P2 = playerTwoDeck.pop(); 
+        warCards3P2 = playerTwoDeck.pop();
+        warCards4P2 = playerTwoDeck.pop();
 
-         warCardsP2= playerTwoDeck.cards.slice(0,3);
+         
 
-        /* playerOneCardNumWar.innerHTML = warCardsP1;
+        /* 
+        warCardsP2= playerTwoDeck.cards.slice(0,3);
+        playerOneCardNumWar.innerHTML = warCardsP1;
          playerTwoCardNumWar.innerHTML = warCardsP2;*/
 
          document.getElementById("warCard1").style.display = "flex";
          document.getElementById("warCard2").style.display = "flex";
+         document.getElementById("warCardteste").style.display = "flex";
 
-         playerOneCardNumWar.appendChild(warCards1P1.getHTML())
-         playerOneCardNumWar.appendChild(warCards2P1.getHTML())
-         playerOneCardNumWar.appendChild(warCards3P1.getHTML())
-         playerOneCardNumWar.appendChild(warCards4P1.getHTML())
+         playerOneCardNumWar.appendChild(warCards1P1.getHTML());
+         playerTwoCardNumWar.appendChild(warCards1P2.getHTML());
+        /*playerOneCard1NumWar.appendChild(warCards2P1.getHTML());
+         playerOneCardNumWar.appendChild(warCards3P1.getHTML());
+         playerOneCardNumWar.appendChild(warCards4P1.getHTML());*/
 
 
          
