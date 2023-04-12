@@ -22,7 +22,6 @@ const playerTwoCardNum= document.querySelector(".playerTwoCardNum")
 const playerOneDeckElement = document.querySelector(".player1Score")
 const playerTwoDeckElement = document.querySelector(".player2Score")
 const playerOneCardNumWar = document.querySelector(".playerOneCardWar")
-const playerOneCard1NumWar = document.querySelector(".playerOneCard1War")
 const playerTwoCardNumWar = document.querySelector(".playerTwoCardWar")
 
 let playerOneDeck, playerTwoDeck, inRound, stop 
@@ -112,15 +111,15 @@ startGame()
         warCards4P2 = playerTwoDeck.pop();
 
          
-
-        /* 
+        
+        /* p1WarCards = p1Deck.splice(0, 3);
         warCardsP2= playerTwoDeck.cards.slice(0,3);
         playerOneCardNumWar.innerHTML = warCardsP1;
          playerTwoCardNumWar.innerHTML = warCardsP2;*/
 
          document.getElementById("warCard1").style.display = "flex";
          document.getElementById("warCard2").style.display = "flex";
-         document.getElementById("warCardteste").style.display = "flex";
+
 
          playerOneCardNumWar.appendChild(warCards1P1.getHTML());
          playerTwoCardNumWar.appendChild(warCards1P2.getHTML());
@@ -131,6 +130,10 @@ startGame()
 
          
          playerTwoCardNumWar.appendChild(warCardsP2.getHTML())
+
+         playerOneCardNumWar.style.left = "40 px";
+         playerOneCardNumWar.style.position = "absolute";
+         playerOneCardNumWar.style.top = "40px";
     }
 
     function updateDeckCount() {
