@@ -60,6 +60,9 @@ startGame()
         inRound = false
         playerOneCardNum.innerHTML = ""
         playerTwoCardNum.innerHTML = ""
+        playerOneCardNumWar.innerHTML = ""
+        playerTwoCardNumWar.innerHTML = ""
+
         updateDeckCount()
     }
 
@@ -172,6 +175,7 @@ startGame()
 
          
     }
+
 
     function updateDeckCount() {
         playerOneDeckElement.innerText = "Player One Score: " + playerOneDeck.numberOfCards
