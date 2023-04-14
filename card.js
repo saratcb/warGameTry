@@ -23,6 +23,7 @@ const playerOneDeckElement = document.querySelector(".player1Score")
 const playerTwoDeckElement = document.querySelector(".player2Score")
 const playerOneCardNumWar = document.querySelector(".playerOneCardWar")
 const playerTwoCardNumWar = document.querySelector(".playerTwoCardWar")
+const gameTitle = document.querySelector(".title")
 
 let player1Card, player2Card
 
@@ -33,7 +34,7 @@ document.querySelector(".myButton").addEventListener("click", () => {
     if (stop){
     startGame()
     return
-}
+    }
     else{
         cleanBeforeRound()
         flipCards()
@@ -41,7 +42,7 @@ document.querySelector(".myButton").addEventListener("click", () => {
 })
 
 startGame()
-    function startGame(){
+function startGame(){
     const deck = new Deck();
     deck.shuffle();
 
@@ -53,9 +54,9 @@ startGame()
     
 
     cleanBeforeRound()
-    }
+}
 
-    function cleanBeforeRound(){
+function cleanBeforeRound(){
 
         inRound = false
         playerOneCardNum.innerHTML = ""
@@ -64,9 +65,9 @@ startGame()
         playerTwoCardNumWar.innerHTML = ""
 
         updateDeckCount()
-    }
+}
 
-    function flipCards(){
+function flipCards(){
         document.getElementById("warP1").style.display = "none";
          document.getElementById("warP2").style.display = "none";
 
@@ -81,9 +82,17 @@ startGame()
         checkWinner(player1Card,player2Card)
         updateDeckCount()
 
-    }
+        if(gameOver(playerOneDeck, 0)){
+            gameTitle.innerText = "P2 Wins!!"
+            stop = true
+        } else if (gameOver(playerTwoDeck, 0)){
+            gameTitle.innerText = "P1 Wins!!"
+            stop = true
+        }
 
-    function checkWinner(player1Card, player2Card){
+}
+
+function checkWinner(player1Card, player2Card){
 
         let p1Card = CARD_VALUE_MAP[player1Card.value]
         let p2Card = CARD_VALUE_MAP[player2Card.value]
@@ -100,14 +109,21 @@ startGame()
         } 
 
         else {
-            war();
+            if(gameOver(playerOneDeck, 3)){
+                gameTitle.innerText = "P2 Wins!!"
+                stop = true
+            } else if (gameOver(playerTwoDeck, 3)){
+                gameTitle.innerText = "P1 Wins!!"
+                stop = true
+            }
+            else war();
         }
         
         updateDeckCount()
 
-    }
+}
 
-    function checkWinnerWar(player1WarCard, player2WarCard, war2,war3,war4,war5,war6,war7){
+function checkWinnerWar(player1WarCard, player2WarCard, war2,war3,war4,war5,war6,war7){
 
         let p1Card = CARD_VALUE_MAP[player1WarCard.value]
         let p2Card = CARD_VALUE_MAP[player2WarCard.value]
@@ -145,9 +161,9 @@ startGame()
         
         updateDeckCount()
 
-    }
+}
 
-    function war (){
+function war (){
         warCards1P1 = playerOneDeck.pop(); 
         warCards2P1 = playerOneDeck.pop(); 
         warCards3P1 = playerOneDeck.pop();
@@ -174,15 +190,20 @@ startGame()
         checkWinnerWar(warCards1P1,warCards1P2, warCards2P1,warCards2P2,warCards3P1,warCards3P2,warCards4P1,warCards4P2);
 
          
-    }
+}
 
 
-    function updateDeckCount() {
+function updateDeckCount() {
         playerOneDeckElement.innerText = "Player One Score: " + playerOneDeck.numberOfCards
         playerTwoDeckElement.innerText = "Player Two Score: " + playerTwoDeck.numberOfCards
 
     }
-    
+
+function gameOver(deck, deckCards){
+    return deck.numberOfCards <= deckCards;
+}
+
+
     
 
     

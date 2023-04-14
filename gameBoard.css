@@ -38,6 +38,31 @@ body{
   height: fit-content;
 }
 
+@media screen and (max-width:768px) {
+  .board-game {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  }
+
+  .card {
+    width: 140px;
+    height: 200px;
+    font: 150px 'Trebuchet MS';
+    
+  }
+
+  .deck {
+    width: 140px;
+    height: 200px;
+    font: 16px 'Trebuchet MS';
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    align-items: center;
+    }
+  }
+
 .boardCard{
   height: fit-content;
   display: flex;
